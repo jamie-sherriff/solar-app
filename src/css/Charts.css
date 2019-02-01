@@ -1,0 +1,31 @@
+div.landing-charts{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+div.full-row-chart{
+  margin: auto;
+  /*display: flex;*/
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/*#app > main > div > div{*/
+/*max-height: 500px;*/
+/*max-width: 500px;*/
+/*}*/
+
+/* Hacks to get chrome mobile working without overflow on chartjs
+https://github.com/chartjs/Chart.js/issues/56
+*/
+canvas{
+  width: 100% !important;
+  max-width: 1000px;
+  max-height: 50vh;
+  min-height: 200px;
+  min-width: 200px;
+  /*height: auto !important;*/
+  display: inline !important;
+}

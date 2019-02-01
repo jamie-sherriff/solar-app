@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solar App</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-16x16.png">
+    <!--[if IE]><link rel="shortcut icon" href="/static/img/icons/favicon.ico"><![endif]-->
+    <!-- Add to home screen for Android and modern mobile browsers -->
+    <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>static/manifest.json">
+    <meta name="theme-color" content="#4DBA87">
+
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Solar App">
+    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/apple-touch-icon-152x152.png">
+    <!-- Add to home screen for Windows -->
+    <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <% for (var chunk of webpack.chunks) {
+        for (var file of chunk.files) {
+          if (file.match(/\.(js|css)$/)) { %>
+    <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+
+    <style>
+      body {background-color: black;}
+      .lmask {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #000;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 9999;
+        opacity: 0.4;
+      }
+      .lmask.fixed {
+        position: fixed;
+      }
+      .lmask:before {
+        content: '';
+        background-color: transparent;
+        border: 5px solid rgba(0, 183, 229, 0.9);
+        opacity: .9;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        border-radius: 50px;
+        box-shadow: 0 0 35px #2187e7;
+        width: 50px;
+        height: 50px;
+        -moz-animation: spinPulse 1s infinite ease-in-out;
+        -webkit-animation: spinPulse 1s infinite linear;
+        margin: -25px 0 0 -25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+      .lmask:after {
+        content: '';
+        background-color: transparent;
+        border: 5px solid rgba(0, 183, 229, 0.9);
+        opacity: .9;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-radius: 50px;
+        box-shadow: 0 0 15px #2187e7;
+        width: 30px;
+        height: 30px;
+        -moz-animation: spinoffPulse 1s infinite linear;
+        -webkit-animation: spinoffPulse 1s infinite linear;
+        margin: -15px 0 0 -15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+
+      @-moz-keyframes spinPulse {
+        0% {
+          -moz-transform: rotate(160deg);
+          opacity: 0;
+          box-shadow: 0 0 1px #2187e7;
+        }
+        50% {
+          -moz-transform: rotate(145deg);
+          opacity: 1;
+        }
+        100% {
+          -moz-transform: rotate(-320deg);
+          opacity: 0;
+        }
+      }
+      @-moz-keyframes spinoffPulse {
+        0% {
+          -moz-transform: rotate(0deg);
+        }
+        100% {
+          -moz-transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes spinPulse {
+        0% {
+          -webkit-transform: rotate(160deg);
+          opacity: 0;
+          box-shadow: 0 0 1px #2187e7;
+        }
+        50% {
+          -webkit-transform: rotate(145deg);
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: rotate(-320deg);
+          opacity: 0;
+        }
+      }
+      @-webkit-keyframes spinoffPulse {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+  <noscript>
+      This website requires Javascript to function, please enable it.
+    </noscript>
+    <div id="app">
+      <div class="lmask">
+      </div>
+
+    </div>
+    <!-- Todo: only include in production -->
+    <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
+    <!-- built files will be auto injected -->
+  </body>
+
+</html>

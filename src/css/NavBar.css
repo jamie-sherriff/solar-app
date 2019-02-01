@@ -1,0 +1,104 @@
+#dropdown-menu2{
+  float:right;
+  text-align: center;
+  display: inline-block;
+}
+
+.dropdown-content{
+  background-color: rgb(0, 0, 0);
+}
+#dropdown-menu2 > div.dropdown-menu > div > a.button{
+  width: 100%;
+}
+.dropdown-content > .dropdown-divider{
+  background-color: #4f4f4f;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#router-link-active{
+  color: red;
+  size: 200px;
+  background-color: green;
+}
+#router-link-exact-active router-link-active{
+  color: yellow;
+  size: 200px;
+  background-color: #41B883;
+}
+
+.title{
+  color: #7d9098;
+}
+
+/*Header navigation Start*/
+#app > nav > a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#app > nav > a > i{
+  padding-left: 10px;
+}
+
+/*#app > nav{*/
+/*margin: auto;*/
+/*width: 50%;*/
+/*border: 3px solid green;*/
+/*padding: 10px;*/
+/*}*/
+
+
+#app > nav > a.router-link-exact-active.router-link-active{
+  background-color: rgba(248, 255, 0, 0.42);
+  font-size: 110%;
+}
+
+nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  /*display:inline-block;*/
+  /*margin:60px auto 45px;*/
+  /*width: 50%;*/
+  margin: 0 auto;
+  background-color: #00b413;
+  /*box-shadow:0 1px 1px #ccc;*/
+  border-radius: 1px;
+}
+
+#app > nav > a> div.nav-col{
+  padding-top: 3px;
+}
+
+#app > nav > a> div.nav-col > p{
+  margin-top: -4px;
+  font-size: 14px;
+  color: #0014ff;
+}
+
+#app > nav > a{
+  border: hidden;
+}
+
+
+nav a{
+  flex: 1;
+  padding: 1px;
+  color: #0014ff !important;
+  font-weight:bold;
+  font-size:14px;
+  text-decoration:none !important;
+  text-transform: uppercase;
+  background-color:transparent;
+  -webkit-transition:background-color 0.25s;
+  -moz-transition:background-color 0.25s;
+  transition:background-color 0.25s;
+}
+
+#version-number-text{
+  font-size:12px;
+}

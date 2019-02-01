@@ -1,0 +1,14 @@
+.subscribe ~ button{
+  color: black;
+}
+.subscribe-container{
+  /*width: 350px;*/
+  max-width: 750px;
+  margin: auto;
+}
+
+.subscribe-container > input{
+  max-width: 300px;
+  margin: auto;
+}
+

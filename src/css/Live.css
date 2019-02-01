@@ -1,0 +1,8 @@
+#auroraMap{
+  height: 100%;
+  min-height: 55vh;
+  min-width: 300px;
+  display:flex;
+  /*height: 100%;*/
+  /*overflow: inherit;*/
+}
