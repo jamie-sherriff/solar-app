@@ -30,4 +30,13 @@ npm run e2e
 npm test
 ```
 
+## Special Notes
+* To build you will need a file called ```private\secrects.json``` which has the structure:
+```
+{
+  "googleMapsKey": "<keyGoesHere>"
+}
+
+```
+
 For detailed explanation on how vue.js things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
